@@ -22,7 +22,7 @@ test.describe("todo list", () => {
 		expect(await page.getByLabel('test1')).toBeVisible();
 
 		//for temp
-		await page.getByLabel('test1').check();
+		//await page.getByLabel('test1').check();
 	});
 
 	test('click todo checkbox', async ({ page }) => {
