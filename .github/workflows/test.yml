@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
+      image: mcr.microsoft.com/playwright:v1.29.2-focal
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -17,8 +17,10 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: npm ci
+      - name: Install Playwright Browser
+        run: PLAYWRIGHT_BROWSERS_PATH=/usr/lib/playwright npm i playwright-chromium@1.11.1
       - name: Run your tests
-        run: npx playwright test
+        run: PLAYWRIGHT_BROWSERS_PATH=/usr/lib/playwright npx playwright test
       - uses: actions/upload-artifact@v3
         if: always()
         with:
