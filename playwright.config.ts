@@ -10,7 +10,7 @@ const config: PlaywrightTestConfig = {
 		trace: 'on-first-retry', // record traces on first retry of each test
 	  },
 	testDir: 'tests',
-	reporter: process.env.CI ? 'github' : 'list',
+	reporter: [['html', { outputFolder: 'playwright-report' }]],
 };
 
 export default config;
