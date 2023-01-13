@@ -9,8 +9,6 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - name: Update system (Ubuntu)
-        run: sudo apt update && sudo apt upgrade -y
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -26,4 +24,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: playwright-report
-          path: playwright-report
+          path: playwright-report/
+          retention-days: 30
